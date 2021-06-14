@@ -1,0 +1,20 @@
+ALGORITHM length_in_sentence
+VAR
+C : char;
+nb_char , nb_word : integer:=1;
+nb_v : integer:=0;
+BEGIN
+	WHILE (C<>".") DO
+		Read(C);
+		nb_char := nb_char + 1;
+		IF (C=" ") THEN
+			nb_word := nb_word + 1;
+		ELSE
+		IF (C="a" OR C="e" OR C="i" OR C="o" OR C="u" OR C="y") THEN
+			nb_v := nb_v + 1;
+		END_IF
+	END_WHILE
+	Write("The number of characters in the sentence is :",nb_char)
+	Write("The number of words in the sentence is :",nb_word)
+	Write("The number of vowels in the sentence is :",nb_v)
+END
