@@ -1,0 +1,15 @@
+ALGORITHM  insertion_cartes
+VAR
+i , j , temp : integer;
+arr : array;
+BEGIN
+	FOR i From 1 to arr.length-1 DO
+		temp:=arr[i];
+		j:=i-1;
+		WHILE (j>=0 and arr[j]>temp) DO
+			arr[j+1]:=arr[i];
+			arr[j+1]:=temp;
+		END_WHILE
+		j:=j-1;
+	END_FOR
+END
