@@ -1,0 +1,59 @@
+// Procedure DOT_Product
+PROCEDURE dot_productP(v1,v2)
+VAR
+    ps:INTEGER;
+
+BEGIN
+    ps:=(v1.x*v2.x)+(v1.y*v2.y)+(v1.z*v2.z);
+    IF (ps=0) THEN
+        write("vector"+v1+" et "+v2+" are orthogonal")
+    ELSE
+        write("vector"+v1+" et "+v2+" are not orthogonal")
+
+    END_IF
+END
+
+//Function DOT_Product
+FUNCTION dot_productF(v1,v2) : INTEGER
+VAR
+    ps:INTEGER;
+
+BEGIN
+    ps:=(v1.x*v2.x)+(v1.y*v2.y)+(v1.z*v2.z);
+    Return ps
+END
+
+
+ALGORITHM Orthogonal
+VAR
+    Vector:	STRUCT
+        v1:INTEGER;
+        v2:INTEGER;
+    END_STRUCT
+    arr : ARRAY_OF Vector[];
+    Sum : INTEGER:=0;
+    i,j : INTEGER;
+BEGIN
+// For the procedure
+    FOR i FROM 0 TO arr.length STEP 1  DO
+        FOR j FROM 0 TO arr.length STEP 1  DO
+            IF (i<>j) THEN
+                dot_productP(arr[i],arr[j])
+            END_IF
+        END_FOR
+    END_FOR
+
+// For the Function
+    FOR i FROM 0 TO arr.length STEP 1  DO
+        FOR j FROM 0 TO arr.length STEP 1  DO
+            IF (i<>j) THEN
+                sum:=dot_productP(arr[i],arr[j])
+                IF (sum=0) THEN
+                    write("vector"+arr[i]+" et "+arr[j]+" are orthogonal")
+                ELSE
+                    write("vector"+arr[i]+" et "+arr[j]+" are not orthogonal")
+                END_IF
+            END_IF
+        END_FOR
+    END_FOR
+END
